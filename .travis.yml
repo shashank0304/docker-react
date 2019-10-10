@@ -1,0 +1,7 @@
+sudo: required # This indicates super user permissions are required
+services: # this indicates we need a copy of docker ready to go
+  - docker 
+before_install: # this indicates some series of steps that needed to be executed 
+  - docker build -t shashank0304/docker-react -f Dockerfile.dev .
+script:
+  - docker run shashank0304/docker-react npm run test -- --coverage # Adding "-- --coverage" will exit npm after test cases are executed.
